@@ -1,0 +1,14 @@
+com\gabriel\helpdesk\model\Usuario.class
+com\gabriel\helpdesk\model\HistoricoStatus.class
+com\gabriel\helpdesk\controller\ChamadoController.class
+com\gabriel\helpdesk\model\StatusChamado.class
+com\gabriel\helpdesk\dto\ChamadoResponseDTO.class
+com\gabriel\helpdesk\HelpdeskApplication.class
+com\gabriel\helpdesk\model\TipoUsuario.class
+com\gabriel\helpdesk\repository\ChamadoRepository.class
+com\gabriel\helpdesk\repository\UsuarioRepository.class
+com\gabriel\helpdesk\controller\GlobalExceptionHandler.class
+com\gabriel\helpdesk\service\ChamadoService.class
+com\gabriel\helpdesk\dto\AbrirChamadoDTO.class
+com\gabriel\helpdesk\controller\UsuarioController.class
+com\gabriel\helpdesk\model\Chamado.class

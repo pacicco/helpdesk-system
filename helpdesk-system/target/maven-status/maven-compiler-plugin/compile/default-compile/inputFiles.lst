@@ -1,0 +1,14 @@
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\controller\ChamadoController.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\controller\GlobalExceptionHandler.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\controller\UsuarioController.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\dto\AbrirChamadoDTO.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\dto\ChamadoResponseDTO.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\HelpdeskApplication.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\model\Chamado.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\model\HistoricoStatus.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\model\StatusChamado.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\model\TipoUsuario.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\model\Usuario.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\repository\ChamadoRepository.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\repository\UsuarioRepository.java
+C:\Users\gabri\Documents\helpdesk-system\helpdesk-system\src\main\java\com\gabriel\helpdesk\service\ChamadoService.java
