@@ -23,10 +23,10 @@ A documentação completa de requisitos e modelagem está disponível em [`/docs
 
 - [x] Abertura de chamados técnicos por funcionários
 - [x] Listagem e consulta de status dos chamados
-- [ ] Atualização de status pela equipe técnica
+- [x] Atualização de status pela equipe técnica
 - [ ] Registro de solução ao encerrar um chamado
 - [ ] Histórico de mudanças de status
-- [ ] Autenticação de usuários
+- [x] Autenticação de usuários
 
 ## Modelo de dados
 
