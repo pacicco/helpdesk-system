@@ -1,6 +1,13 @@
 package com.gabriel.helpdesk.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -24,6 +31,10 @@ public class Usuario {
     @Email(message = "Email invalido")
     @Column(unique = true)
     private String email;
+
+    @NotBlank(message = "A senha e obrigatoria")
+    @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
+    private String senha;
 
     @Enumerated(EnumType.STRING)
     private TipoUsuario tipo;
@@ -62,6 +73,14 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public TipoUsuario getTipo() {

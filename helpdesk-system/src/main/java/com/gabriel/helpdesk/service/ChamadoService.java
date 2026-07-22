@@ -1,14 +1,19 @@
 package com.gabriel.helpdesk.service;
 
-import com.gabriel.helpdesk.dto.AbrirChamadoDTO;
-import com.gabriel.helpdesk.dto.ChamadoResponseDTO;
-import com.gabriel.helpdesk.model.Chamado;
-import com.gabriel.helpdesk.model.Usuario;
-import com.gabriel.helpdesk.repository.ChamadoRepository;
-import com.gabriel.helpdesk.repository.UsuarioRepository;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.gabriel.helpdesk.dto.AbrirChamadoDTO;
+import com.gabriel.helpdesk.dto.AtualizarStatusDTO;
+import com.gabriel.helpdesk.dto.ChamadoResponseDTO;
+import com.gabriel.helpdesk.model.Chamado;
+import com.gabriel.helpdesk.model.HistoricoStatus;
+import com.gabriel.helpdesk.model.StatusChamado;
+import com.gabriel.helpdesk.model.Usuario;
+import com.gabriel.helpdesk.repository.ChamadoRepository;
+import com.gabriel.helpdesk.repository.HistoricoStatusRepository;
+import com.gabriel.helpdesk.repository.UsuarioRepository;
 
 /**
  * Camada de Servico - concentra as regras de negocio.
@@ -18,14 +23,16 @@ import java.util.List;
 @Service
 public class ChamadoService {
 
-    private final ChamadoRepository chamadoRepository;
+   private final ChamadoRepository chamadoRepository;
     private final UsuarioRepository usuarioRepository;
+    private final HistoricoStatusRepository historicoStatusRepository;
 
-    // Injecao de dependencia via construtor (padrao recomendado no Spring)
-    public ChamadoService(ChamadoRepository chamadoRepository, UsuarioRepository usuarioRepository) {
-        this.chamadoRepository = chamadoRepository;
-        this.usuarioRepository = usuarioRepository;
-    }
+    public ChamadoService(ChamadoRepository chamadoRepository, UsuarioRepository usuarioRepository,
+                       HistoricoStatusRepository historicoStatusRepository) {
+    this.chamadoRepository = chamadoRepository;
+    this.usuarioRepository = usuarioRepository;
+    this.historicoStatusRepository = historicoStatusRepository;
+}
 
     /**
      * US01 - Abrir chamado.
@@ -60,4 +67,27 @@ public class ChamadoService {
                 .orElseThrow(() -> new IllegalArgumentException("Chamado nao encontrado com id: " + id));
         return new ChamadoResponseDTO(chamado);
     }
+
+    /**
+ * US03 - Atualizar status de um chamado.
+ * Alem de mudar o status, registra a mudanca no historico (RF06),
+ * preparando o terreno para a US05 (ver historico) no proximo sprint.
+ */
+    public ChamadoResponseDTO atualizarStatus(Long id, AtualizarStatusDTO dto) {
+    Chamado chamado = chamadoRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Chamado nao encontrado com id: " + id));
+
+    StatusChamado statusAnterior = chamado.getStatus();
+    StatusChamado statusNovo = dto.getNovoStatus();
+
+    // Atualiza o status do chamado
+    chamado.setStatus(statusNovo);
+    Chamado atualizado = chamadoRepository.save(chamado);
+
+    // Registra a mudanca no historico
+    HistoricoStatus historico = new HistoricoStatus(chamado, statusAnterior, statusNovo);
+    historicoStatusRepository.save(historico);
+
+    return new ChamadoResponseDTO(atualizado);
+}
 }

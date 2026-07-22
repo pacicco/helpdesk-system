@@ -1,14 +1,23 @@
 package com.gabriel.helpdesk.controller;
 
-import com.gabriel.helpdesk.dto.AbrirChamadoDTO;
-import com.gabriel.helpdesk.dto.ChamadoResponseDTO;
-import com.gabriel.helpdesk.service.ChamadoService;
-import jakarta.validation.Valid;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.gabriel.helpdesk.dto.AbrirChamadoDTO;
+import com.gabriel.helpdesk.dto.AtualizarStatusDTO;
+import com.gabriel.helpdesk.dto.ChamadoResponseDTO;
+import com.gabriel.helpdesk.service.ChamadoService;
+
+import jakarta.validation.Valid;
 
 /**
  * Controller REST de Chamado - camada responsavel por expor os endpoints HTTP.
@@ -53,5 +62,17 @@ public class ChamadoController {
     @GetMapping("/{id}")
     public ResponseEntity<ChamadoResponseDTO> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(chamadoService.buscarPorId(id));
+    }
+
+    /**
+ * US03 - Atualizar status de um chamado.
+ * PATCH /chamados/{id}/status
+ * Corpo (JSON) esperado: { "novoStatus": "EM_ANDAMENTO" }
+ */
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<ChamadoResponseDTO> atualizarStatus(@PathVariable Long id,
+                                                            @Valid @RequestBody AtualizarStatusDTO dto) {
+    ChamadoResponseDTO atualizado = chamadoService.atualizarStatus(id, dto);
+    return ResponseEntity.ok(atualizado);
     }
 }
