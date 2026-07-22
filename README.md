@@ -6,7 +6,7 @@ O sistema permite que funcionários abram chamados de suporte técnico e acompan
 
 ## Status do projeto
 
-🚧 Em desenvolvimento — Sprint 1 em andamento
+🚧 Em desenvolvimento — Sprint 3 em andamento
 
 ## Sobre o projeto
 
@@ -21,12 +21,12 @@ A documentação completa de requisitos e modelagem está disponível em [`/docs
 
 ## Funcionalidades
 
-- [ ] Abertura de chamados técnicos por funcionários
-- [ ] Listagem e consulta de status dos chamados
-- [ ] Atualização de status pela equipe técnica
+- [x] Abertura de chamados técnicos por funcionários
+- [x] Listagem e consulta de status dos chamados
+- [x] Atualização de status pela equipe técnica
 - [ ] Registro de solução ao encerrar um chamado
 - [ ] Histórico de mudanças de status
-- [ ] Autenticação de usuários
+- [x] Autenticação de usuários
 
 ## Modelo de dados
 
@@ -105,7 +105,7 @@ cd helpdesk-system
 - [x] Documento de requisitos
 - [x] Modelagem ER
 - [x] Backlog e planejamento (Kanban)
-- [ ] Desenvolvimento do backend (Sprint 1)
+- [x] Desenvolvimento do backend (Sprint 1)
 - [ ] Testes automatizados
 - [ ] Deploy (Render/Railway)
 
