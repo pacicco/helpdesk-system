@@ -6,7 +6,7 @@ O sistema permite que funcionários abram chamados de suporte técnico e acompan
 
 ## Status do projeto
 
-🚧 Em desenvolvimento — Sprint 1 em andamento
+🚧 Em desenvolvimento — Sprint 3 em andamento
 
 ## Sobre o projeto
 
@@ -105,7 +105,7 @@ cd helpdesk-system
 - [x] Documento de requisitos
 - [x] Modelagem ER
 - [x] Backlog e planejamento (Kanban)
-- [ ] Desenvolvimento do backend (Sprint 1)
+- [x] Desenvolvimento do backend (Sprint 1)
 - [ ] Testes automatizados
 - [ ] Deploy (Render/Railway)
 
